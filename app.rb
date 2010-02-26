@@ -2,6 +2,12 @@
 require 'rubygems'
 require 'compass' # must be loaded before sinatra
 
+# Load MongoMapper
+# Must require version 2.3.5 of ActiveSupport
+require 'activesupport'
+gem 'activesupport', :version => '2.3.5'  
+require 'mongo_mapper'
+
 # Load Sinatra
 require 'sinatra'
 require 'lib/render_partial'
@@ -18,7 +24,11 @@ set :public, 'public'
 # Configure Compass
 configure do
   Compass.configuration.parse(File.join(Sinatra::Application.root, 'config.rb'))
+  MongoMapper.connection = Mongo::Connection.new('localhost')
+  MongoMapper.database = 'dbname'
 end
+
+require 'lib/models'
 
 # At a minimum the main sass file must reside within the views directory
 # We create /views/stylesheets where all our sass files can safely reside
