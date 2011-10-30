@@ -5,7 +5,7 @@ require 'compass' # must be loaded before sinatra
 # Load MongoMapper
 # Must require version 2.3.5 of ActiveSupport
 require 'activesupport'
-gem 'activesupport', :version => '2.3.5'  
+gem 'activesupport', :version => '2.3.5'
 require 'mongo_mapper'
 
 # Load Sinatra

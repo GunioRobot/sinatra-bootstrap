@@ -8,7 +8,7 @@ else
   relative_assets = true
   environment = :production
 end
- 
+
 # This is common configuration
 sass_dir = File.join 'views', 'stylesheets'
 images_dir = File.join 'public', 'images'
